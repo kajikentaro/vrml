@@ -1,0 +1,7 @@
+#/bin/bash
+
+echo "/*" >> $1
+echo $(./clipboard.out) >> $1
+echo "*/" >> $1
+
+echo $1にコメントを追記しました

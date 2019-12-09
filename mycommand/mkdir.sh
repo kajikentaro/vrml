@@ -1,23 +1,20 @@
-#!/usr/bin/bash
-#xargsでパイプを使ったときに引数にできる。
+#/bin/bash
 
-#フォルダ作成。
-FOLDER=$(date "+pro2_%m_%d")
+FOLDER=pro2_$(date "+%m_%d")
 mkdir $FOLDER
+cd $FOLDER
 
-#コメント部分の日付作成
-DATE=$(date +'//%Y/%m/%d')
-
-#回数を取得
-echo -n 第何回目ですか。二桁の場合は0をつけてください。:
+echo -n "第何回目ですか？(一桁の場合は0込みで):"
 read NUM
 
-#cファイルの作成
-for ((i=0;i<$NUM;i++))
+echo -n "課題の数はいくつですか？:"
+read TASK
+
+for ((i=0;i<TASK;i++))
 do
-FILENAME=kadai$NUM$(echo $i | ./abc.out).c
-COMMENT=$DATE 課題$NUM$(echo $i | ./abc.out) 19D8104026J 可児 憲太郎
-echo $COMMENT >> ./$FOLDER/$FILENAME
+	FILE="kadai$NUM$(echo $i | ../abc.out).c"
+	COMMENT="$(date "+//%Y/%m/%d")課題$NUM$(echo $i | ../abc.out) 19D8104026J 可児憲太郎"
+	echo $COMMENT >> $FILE
 done
 
-echo 完了しました。
+echo 完了しました
