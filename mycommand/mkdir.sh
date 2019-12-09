@@ -13,8 +13,9 @@ read TASK
 for ((i=0;i<TASK;i++))
 do
 	FILE="kadai$NUM$(echo $i | ../abc.out).c"
-	COMMENT="$(date "+//%Y/%m/%d")課題$NUM$(echo $i | ../abc.out) 19D8104026J 可児憲太郎"
+	COMMENT="$(date "+//%Y/%m/%d") 課題$NUM$(echo $i | ../abc.out) 19D8104026J 可児憲太郎"
 	echo $COMMENT >> $FILE
+	cat ../template.txt >> $FILE
 done
 
 echo 完了しました
