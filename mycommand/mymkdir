@@ -10,12 +10,14 @@ read NUM
 echo -n "課題の数はいくつですか？:"
 read TASK
 
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
 for ((i=0;i<TASK;i++))
 do
-	FILE="kadai$NUM$(echo $i | ../abc.out).c"
-	COMMENT="$(date "+//%Y/%m/%d") 課題$NUM$(echo $i | ../abc.out) 19D8104026J 可児憲太郎"
+	FILE="kadai$NUM$(echo $i | abc.out).c"
+	COMMENT="$(date "+//%Y/%m/%d") 課題$NUM$(echo $i | abc.out) 19D8104026J 可児憲太郎"
 	echo $COMMENT >> $FILE
-	cat ../template.txt >> $FILE
+	cat $SCRIPT_DIR/template >> $FILE
 done
 
 echo 完了しました
