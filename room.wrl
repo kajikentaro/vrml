@@ -26,7 +26,7 @@ DEF TWOCOM Transform{
 											}
 											geometry Cylinder {
 												height 0.2
-													radius 0.03
+													radius 0.02
 													side TRUE
 													bottom TRUE
 													top TRUE
@@ -34,6 +34,21 @@ DEF TWOCOM Transform{
 										}
 									]
 								}
+Transform{
+                                translation 0.09 -0.04 0
+                                        children[
+                                        Shape{
+                                                appearance Appearance{
+                                                        material Material{
+                                                        }
+                                                }
+                                                geometry Sphere{
+                                                        radius 0.025
+                                                }
+                                        }
+                                ]
+                        }
+
 							]
 						}
 					Transform{
