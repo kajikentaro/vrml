@@ -303,7 +303,7 @@ DEF TWO_DESKSET Transform{children[
 							}
 							]
 					}
-					Transform{
+					DEF TEMP Transform{
 						scale 1 1 1
 							rotation 1 0 0 -0.2
 							translation 0 0 0
@@ -795,10 +795,10 @@ Transform{
 		]
 }
 #printer
-Transform{
+DEF PRINTER Transform{
 	scale 1 1 1
 		rotation 0 0 0 0
-		translation 8 -0.35 0 
+		translation 8.1 -0.45 0 
 		children[
 
 		Shape{
@@ -807,8 +807,173 @@ Transform{
 				}
 			}
 			geometry Box{
-				size 0.5 0.7 0.5
+				size 0.45 0.6 0.5
 			}
 		}
 		]
+}
+Transform{
+	translation 0 0 4 
+	children[
+		USE PRINTER
+		]
+}
+Transform{
+	translation 0 0 8
+	children[
+		USE PRINTER
+	]
+}
+#three room piller
+DEF THREE_ROOM_PILLER Transform {
+	children[
+#room piller
+DEF ROOM_PILLER Transform{
+		scale 1 1 1
+		rotation 0 0 0 0
+		translation 8.4 0.5 3
+		children[
+		Shape{
+			appearance Appearance{
+				material Material{
+				}
+			}
+			geometry Cylinder{
+				height 2.5 
+					radius 0.5
+					side TRUE
+					bottom TRUE
+					top TRUE
+			}
+		}
+		]
+}
+Transform{
+	translation 0 0 -5
+	children[
+		USE ROOM_PILLER
+		]
+}
+Transform{
+	translation 0 0 4
+	children[
+		USE ROOM_PILLER
+]
+}
+]}
+Transform{
+	translation -9.5 0 0
+	children[
+		USE THREE_ROOM_PILLER
+		]
+}
+#wall one part
+Transform{
+	translation 0 3 0
+	children[
+Transform{
+	scale 1 1 1
+	rotation 0 0 0 0
+	translation 0 0 0
+	children[
+		Shape{
+			appearance Appearance{
+					material Material{}
+			}
+			geometry Box{
+				size 0.2 0.5 2.5
+			}
+		}
+		]
+}
+		Transform{
+	scale 1 1 1
+	rotation 0 0 0 0
+	translation 0 0 1
+	children[
+		Shape{
+			appearance Appearance{
+					material Material{}
+			}
+			geometry Box{
+				size 0.2 2 0.5
+			}
+		}
+		]}
+		Transform{
+	scale 1 1 1
+	rotation 0 0 0 0
+	translation 0 0 -1
+	children[
+		Shape{
+			appearance Appearance{
+					material Material{}
+			}
+			geometry Box{
+				size 0.2 2 0.5
+			}
+		}
+		]
+		}
+	]
+}
+#floor
+Transform{
+	scale 1 1 1
+	rotation 0 0 0 0
+	translation 0 -0.9 0
+	children[
+		Shape{
+			appearance Appearance{
+					material Material{}
+			}
+			geometry Box{
+				size 15 0.2 15 
+			}
+		}
+		]
+}
+DEF ONELINE_UPPER_DISPLAY Transform{
+	children[
+#upper display
+DEF UPPER_DISPLAY Transform{
+	scale 3.5 3.5 3.5
+	rotation 1 0 0 0.8
+	translation 1 1 1
+	children[
+		USE TEMP
+		]
+}
+Transform{
+	translation 0 0 3
+	children[
+		USE UPPER_DISPLAY
+		]
+}
+Transform{
+	translation 0 0 6
+	children[
+		USE UPPER_DISPLAY
+		]
+}]}
+Transform{
+	translation 4.2 0 0
+	children[
+		USE ONELINE_UPPER_DISPLAY
+		]
+}
+Transform{
+	scale 1 1 1
+	rotation 0 0 0 0
+	translation 4 1 -2.5
+	children[
+		Shape{
+			appearance Appearance{
+					material Material{}
+			}
+			geometry Box{
+				size 5 1 0.1
+			}
+		}
+	]
 }
